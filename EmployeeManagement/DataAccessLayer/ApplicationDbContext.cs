@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataTransferObject.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace DataAccessLayer
         {
                 
         }
+        public DbSet<State> State { get; set; } = null!;
+        public DbSet<District> District { get; set; }=null!;
+
+        public DbSet<Gender> Gender { get; set; } = null!;
+        public DbSet<Employee> Employee { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
