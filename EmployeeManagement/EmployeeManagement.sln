@@ -3,13 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{23EF3F1A-F797-440C-ADFF-A90A09D614C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{23EF3F1A-F797-440C-ADFF-A90A09D614C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObject", "DataTransferObject\DataTransferObject.csproj", "{433A3FF6-0ACB-4212-92CD-C3276EE7ACF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObject", "DataTransferObject\DataTransferObject.csproj", "{433A3FF6-0ACB-4212-92CD-C3276EE7ACF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{F5952E03-BA8E-4001-A7B7-54BF83F6F26F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{F5952E03-BA8E-4001-A7B7-54BF83F6F26F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B1367062-51C1-4940-93CF-85FFDEAA5A08} = {B1367062-51C1-4940-93CF-85FFDEAA5A08}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicsLayer", "BusinessLogicsLayer\BusinessLogicsLayer.csproj", "{B1367062-51C1-4940-93CF-85FFDEAA5A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogicsLayer", "BusinessLogicsLayer\BusinessLogicsLayer.csproj", "{B1367062-51C1-4940-93CF-85FFDEAA5A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
