@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessLogicsLayer.Employee;
+using DataAccessLayer;
+using DataAccessLayer.BaseInterfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,8 @@ namespace BusinessLogicsLayer
     {
         public static void AddInfrastructure(this IServiceCollection services)
         {
-
+            services.AddTransient<IEmployeeBL, EmployeeBL>();
+            services.AddTransient<IEmployeeDB, EmployeeDB>();
         }
     }
 }

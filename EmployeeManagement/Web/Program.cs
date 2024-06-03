@@ -1,4 +1,5 @@
 using DataAccessLayer;
+using BusinessLogicsLayer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options => options.UseSq
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 
