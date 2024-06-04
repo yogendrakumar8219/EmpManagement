@@ -14,6 +14,7 @@ namespace BusinessLogicsLayer
     {
         public static void AddInfrastructure(this IServiceCollection services)
         {
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IEmployeeBL, EmployeeBL>();
             services.AddTransient<IEmployeeDB, EmployeeDB>();
         }
