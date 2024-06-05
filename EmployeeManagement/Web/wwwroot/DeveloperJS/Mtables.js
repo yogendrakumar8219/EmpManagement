@@ -22,6 +22,7 @@
                 }
                
                 else {
+                    //alert(JSON.stringify(response));
 
                     var listItemddl = "";
                     if (parseInt(TableId) == 1) {

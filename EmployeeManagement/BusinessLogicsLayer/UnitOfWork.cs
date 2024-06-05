@@ -54,7 +54,7 @@ namespace BusinessLogicsLayer
             }
             else if (Data.id == Convert.ToInt16(Helpers.Constants.MasterTbl.District))
             {
-                var Ret = await District.GetAll();
+                var Ret = await District.GetDistrictByStateId(Convert.ToByte(Data.ParentId));
                 foreach (var district in Ret)
                 {
 
