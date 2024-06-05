@@ -1,6 +1,7 @@
 using DataAccessLayer;
 using BusinessLogicsLayer;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var configration = builder.Configuration;
@@ -10,6 +11,16 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options => options.UseSq
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    // Use the default property (Pascal) casing
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+});
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
 
 var app = builder.Build();
 
@@ -38,6 +49,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Employee}/{action=Employee}/{id?}");
 
 app.Run();
