@@ -31,7 +31,7 @@ namespace DataAccessLayer
                 var allrecord = await (from emp in _context.Employee.OrderByDescending(x => x.Id)
                                        join g in _context.Gender on emp.GenderId equals g.GenderId
                                        join d in _context.District on emp.DistrictId equals d.DistrictId
-                                       join s in _context.State on d.DistrictId equals s.StateId
+                                       join s in _context.State on d.StateId equals s.StateId
                                        select new DTOEmployeeResponse()
                                        {
                                            Id = emp.Id,

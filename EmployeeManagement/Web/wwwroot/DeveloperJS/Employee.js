@@ -12,7 +12,7 @@
         Reset();
         ResetErrorMessage();
     });
-    $("#btnEmployeeAdd").on("click", function () {
+    $("#btnEmployeeSubmit").on("click", function () {
         Proceed();
     });
     $("#ddlState").on("change", function () {
@@ -85,7 +85,6 @@ function BindData() {
                 else {
 
                     $("#tbldata").DataTable().destroy();
-                    ProfileCount();
                     for (var i = 0; i < response.length; i++) {
 
                         listItem += "<tr>";
@@ -97,6 +96,7 @@ function BindData() {
                         listItem += "<td class='align-middle'><span id='empAddress'>" + response[i].Address + "</span></td>";
                         listItem += "<td class='align-middle'>" + response[i].StateName + "</td>";
                         listItem += "<td class='align-middle'>" + response[i].DistrictName + "</td>";
+                        listItem += "<td class='align-middle'><span id='btnedit'><button type='button' class='cls-btnedit btn btn-icon btn-round btn-warning mr-1'><i class='fas fa-edit'></i></button></span><button type='button' class='cls-btnDelete btn-icon btn-round btn-danger mr-1'><i class='fas fa-trash-alt'></i></button>";
                         listItem += "</tr>";
 
                     }
@@ -149,6 +149,24 @@ function BindData() {
 
                         $("#btnEmployeeAdd").val("Update");
                         $("#AddNewEmployee").modal('show');
+                    });
+                    $("body").on("click", ".cls-btnDelete", function () {
+
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You want to Delete ",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#072697',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, Delete It!'
+                        }).then((result) => {
+                            if (result.value) {
+
+                                Delete($(this).closest("tr").find("#empId").html());
+
+                            }
+                        });
                     });
                 }
             }
@@ -247,4 +265,46 @@ function ResetErrorMessage() {
     $("#ddlState-error").html("");
     $("#ddlDistrict-error").html("");
 
+}
+function Delete(Id) {
+    var userdata =
+    {
+        "Id": Id,
+
+    };
+    $.ajax({
+        url: '/Employee/DeleteEmployee',
+        contentType: 'application/x-www-form-urlencoded',
+        data: userdata,
+        type: 'POST',
+        success: function (response) {
+            if (response != "null") {
+                if (response == InternalServerError) {
+                    Swal.fire({
+                        text: errormsg
+                    });
+                }
+
+                else if (response == Success) {
+                    //lol++;
+                    //if (lol == Tot) {
+
+                    toastr.success('Deleted Selected');
+                    BindData();
+                }
+
+                //}
+            }
+            else {
+                Swal.fire({
+                    text: errormsg001
+                });
+            }
+        },
+        error: function (result) {
+            Swal.fire({
+                text: errormsg002
+            });
+        }
+    });
 }
