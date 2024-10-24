@@ -258,7 +258,8 @@ function Reset() {
     $("#ddlState").val("");
     $("#ddlDistrict").val("");
 }
-function ResetErrorMessage() {
+
+ResetErrorMessage() {
     $("#txtName-error").html("");
     $("#ddlGender-error").html("");
     $("#txtAddress-error").html("");

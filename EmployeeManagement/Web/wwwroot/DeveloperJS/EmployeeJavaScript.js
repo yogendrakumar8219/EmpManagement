@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     mMsater(0, "ddlGender", EntityType.Gender, "");
-    //mMsater(0, "ddlState", EntityType.State, "");
+    mMsater(0, "ddlState", EntityType.State, "");
     BindData();
 
     document.getElementById("btnEmployeeAdd").addEventListener("click", function () {
