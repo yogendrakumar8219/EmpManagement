@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <title>@ViewData["Title"] - Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
 
@@ -36,6 +35,7 @@
     <script asp-src-include="~/fonts/allfont/webfont.min.js"></script>
     
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="~/lib/jqueryui/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/toastr/toastr.min.css" rel="stylesheet" />
 
@@ -75,7 +75,10 @@
 
     <script src="~/sweetalert2/sweetalert2.min.js"></script>
     <script src="~/toastr/toastr.min.js"></script>
-    <script src="~/developerjs/keyconstants.js"></script>
+@*     <script src="~/developerjs/keyconstants.js"></script> *@
+     <script src="~/developerjs/KeyConstantsJavaScript.js"></script>
+    <script src="~/developerjs/commanvalidation.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

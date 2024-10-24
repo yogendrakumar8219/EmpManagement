@@ -20,7 +20,7 @@ namespace Web.Controllers
                 var ret = await unitOfWork.GetAllMMaster(Data);
                 return Json(ret);
             }
-            catch
+            catch(Exception ex)
             {
                 return Json(KeyConstants.InternalServerError);
             }

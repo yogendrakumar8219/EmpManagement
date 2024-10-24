@@ -38,7 +38,7 @@
                 }
 
                 for (let i = 0; i < result.length; i++) {
-                    listItemddl += `<option value="${result[i].Id}">${result[i].Name}</option>`;
+                    listItemddl += '<option value="${result[i].Id}">${result[i].Name}</option>';
                 }
 
                 document.getElementById(ddl).innerHTML = listItemddl;
@@ -63,7 +63,7 @@ function yeardata(sectid = '', ddl) {
     let listItemddl = '<option value="">Select One</option>';
 
     for (let i = new Date().getFullYear(); i >= 1950; i--) {
-        listItemddl += `<option value="${i}">${i}</option>`;
+        listItemddl += '<option value="${i}">${i}</option>';
     }
 
     document.getElementById(ddl).innerHTML = listItemddl;

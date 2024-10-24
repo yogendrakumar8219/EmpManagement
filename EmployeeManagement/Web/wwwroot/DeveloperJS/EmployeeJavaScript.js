@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     mMsater(0, "ddlGender", EntityType.Gender, "");
-    mMsater(0, "ddlState", EntityType.State, "");
+    //mMsater(0, "ddlState", EntityType.State, "");
     BindData();
 
     document.getElementById("btnEmployeeAdd").addEventListener("click", function () {
@@ -199,7 +199,14 @@ function Reset() {
 }
 
 function ResetErrorMessage() {
-    ["txtName-error", "ddlGender-error", "txtAddress-error", "ddlState-error", "ddlDistrict-error"].forEach(id => {
-        document.getElementById(id).innerHTML = "";
+    const errorFields = ["txtName-error", "ddlGender-error", "txtAddress-error", "ddlState-error", "ddlDistrict-error"];
+
+    errorFields.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.innerHTML = "";
+        } else {
+            console.warn(`Element with ID ${id} not found.`);
+        }
     });
 }
